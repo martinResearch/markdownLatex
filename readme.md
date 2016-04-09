@@ -1,7 +1,7 @@
 # Goal
 
 Markdown format does not allow yet to write directly latex equations.
-This scipt will parse you markwon file using a regular expression matcher and will generate images for each comment of the type
+This script will parse your markdown file using a regular expression matcher and will generate an image for each markdown image insertion command of the type
 
 	![latex:your_latex_equation](your_image_file_name) 
 
