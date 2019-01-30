@@ -89,6 +89,10 @@ lager size:
 
 * [GitHub with MathJax](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima) Chrome extension.
 
+# Improvements
+
+could write a github app similar to [Texify](https://github.com/apps/texify) but that uses the same syntax as here to include equations in md files (instead of the .tex.md file used in Texify) so that no change appear on the md file in the commit made by the app and one edit the md file as usual.
+
 
 
 	
