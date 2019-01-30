@@ -7,8 +7,14 @@ This Python script will parse your markdown file using a regular expression matc
 
 you just need to run in the shell
 
+	python create_latex_images.py your_markdown_file.md
+	
+Note: on linux you may have to use
+
 	sudo python create_latex_images.py your_markdown_file.md
-(for some reason we need sudo to generate png images or we get all white images)
+
+for some reason we need sudo to generate png images or we get all white images
+
 
 **we recommand using svg image files** because
 
