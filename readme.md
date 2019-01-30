@@ -85,6 +85,8 @@ lager size:
 
 * [KaTeXify](https://github.com/FlorianFranzen/KaTeXify)
 
+* [Texify](https://github.com/apps/texify). TeXify is a GitHub App built on top of readme2tex that automatically takes your markdown files and replaces anything enclosed between dollar signs with rendered LaTeX.
+
 * [GitHub with MathJax](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima) Chrome extension.
 
 
