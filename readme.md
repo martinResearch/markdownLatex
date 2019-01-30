@@ -27,8 +27,6 @@ the python script calls the executables pdflatex, pdf2svg
 
 install [MiKTeX](https://miktex.org/download)  add the folder C:\Program Files\MiKTeX 2.9\miktex\bin\x64 in your windows PATH environnement variable
 
-if you want to use SVG images install [pdf2svg](https://github.com/jalios/pdf2svg-windows)
-
 ## Linux
 	
 	sudo apt-get install texlive-latex-base

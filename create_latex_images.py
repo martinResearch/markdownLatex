@@ -10,6 +10,7 @@
 import tempfile
 import shutil
 import sys
+import platform
 
 for arg in sys.argv: 
     print arg
@@ -25,8 +26,9 @@ else:
     raise Exception('wrong number of arguments')
 import re
 
-import os, requests
+import os
 
+textfilefolder=os.path.dirname(texfile)
 
 def formula_as_file( formula, file, negate=False,header='' ):
     laxtex_tmp_file=os.path.join(dirpath,'tmp_equation.tex')
@@ -40,16 +42,55 @@ def formula_as_file( formula, file, negate=False,header='' ):
     latexfile.write('%s'%formula)
     latexfile.write('\n\\end{document}  ') 
     latexfile.close()
-    os.system( 'pdflatex -output-directory="%s"  %s'%(dirpath,laxtex_tmp_file) )
-    if file.startswith('https://raw.github.com'):
-        file='./'+re.findall(r"""/master/(.*)""", file)[0]    
-    if file[-3:]=='svg': 
-        os.system( 'pdf2svg %s %s'%(pdf_tmp_file,file) )
-    elif file[-3:]=='pdf':
-        shutil.copyfile(pdf_tmp_file,file)
-    else:  
-        os.system( 'convert -density 100  %s -quality 90  %s'%(pdf_tmp_file,file) )
- 
+
+    if platform.system()=='Linux':
+		
+		cmd='pdflatex -output-directory="%s"  %s'%(dirpath,laxtex_tmp_file)
+		print('runing command:%s'%cmd)
+		os.system( cmd )
+		if file.startswith('https://raw.github.com'):
+			file='./'+re.findall(r"""/master/(.*)""", file)[0]   
+		file=os.path.join(textfilefolder,file) 
+		if file[-3:]=='svg': 
+			os.system( 'pdf2svg %s %s'%(pdf_tmp_file,file) )
+		elif file[-3:]=='pdf':
+			shutil.copyfile(pdf_tmp_file,file)
+		else: 		
+			cmd='convert -density 100  %s -quality 90  %s'%(pdf_tmp_file,file)
+			print('runing command:%s'%cmd)
+			os.system(cmd  )
+
+    elif platform.system()=='Windows':
+
+		if file.startswith('https://raw.github.com'):
+			file='./'+re.findall(r"""/master/(.*)""", file)[0]    
+		file=os.path.join(textfilefolder,file) 
+		if file[-3:]=='svg': 
+			cmd='latex -output-directory="%s"  %s'%(dirpath,laxtex_tmp_file)
+			dvi_tmp_file=os.path.join(dirpath,'tmp_equation.dvi')
+			print('runing command:%s'%cmd)
+			os.system( cmd )
+			cmd='dvisvgm %s -o %s'%(dvi_tmp_file,file)
+			print('runing command:%s'%cmd)
+			os.system( cmd )
+			
+			
+		elif file[-3:]=='pdf':
+			cmd='pdflatex -output-directory="%s"  %s'%(dirpath,laxtex_tmp_file)
+			print('runing command:%s'%cmd)
+			shutil.copyfile(pdf_tmp_file,file)
+		elif file[-3:]=='png':
+			cmd='latex -output-directory="%s"  %s'%(dirpath,laxtex_tmp_file)
+			dvi_tmp_file=os.path.join(dirpath,'tmp_equation.dvi')
+			print('runing command:%s'%cmd)		
+			os.system(cmd  )
+			cmd='dvipng  %s -o %s'%(dvi_tmp_file,file)
+			print('runing command:%s'%cmd)
+			os.system(cmd  )
+		else:
+			raise('extension %s not supported'%file[-3:])
+    else:
+		raise('unsuported platform %s'%platform.system())
 
 raw = open(texfile)
 filecontent=raw.read()
