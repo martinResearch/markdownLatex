@@ -14,6 +14,18 @@ you just need to run in the shell
 
 * they give nice vector images without visible pixel aliasing artefacts
 * they are in a text format which is **good for versioning** with git or mercurial: as long as you don't change an equation, the corresponding svg get regenerated as you launch the script but as its textual content remains unchanged no change will be detected and commited.
+# Installation
+
+the python script calls the executables pdflatex, pdf2svg 
+## Windows
+
+install [MiKTeX](https://miktex.org/download)  add the folder C:\Program Files\MiKTeX 2.9\miktex\bin\x64 in your windows PATH environnement variable
+
+if you want to use SVG images install [pdf2svg](https://github.com/jalios/pdf2svg-windows)
+
+## Linux
+	
+	sudo apt-get install texlive-latex-base
 
 # Examples
 
