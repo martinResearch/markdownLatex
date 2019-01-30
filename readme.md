@@ -42,18 +42,18 @@ This is due to the fact that github does not allow to include svg files with a r
 
 You need to use the following trick
 
-	![latex:$I(t)=\int_{x=0}^t f(dx) dx$](https://rawgithub.com/martinResearch/markdownLatex/master/images/integral2.svg)
+	![latex:$I(t)=\int_{x=0}^t f(dx) dx$](./images/integral2.svg)
 
 and you get 
 
-![latex:$I(t)=\int_{x=0}^t f(dx) dx$](https://rawgithub.com/martinResearch/markdownLatex/master/images/integral2.svg)
+![latex:$I(t)=\int_{x=0}^t f(dx) dx$](./images/integral2.svg)
 
 lager size:
 
-	![latex:\huge $I(t)=\int_{x=0}^t f(dx) dx$](https://rawgithub.com/martinResearch/markdownLatex/master/images/integral3.svg)
+	![latex:\huge $I(t)=\int_{x=0}^t f(dx) dx$](./images/integral3.svg)
 
 
-![latex:\huge $I(t)=\int_{x=0}^t f(dx) dx$](https://rawgithub.com/martinResearch/markdownLatex/master/images/integral3.svg)
+![latex:\huge $I(t)=\int_{x=0}^t f(dx) dx$](./integral3.svg)
 
 
 
