@@ -11,7 +11,25 @@ import tempfile
 import shutil
 import sys
 import platform
+import glob
+import os
 
+
+# try to find latex in case it has not been added to the environnement variable PATH
+if platform.system()=='Windows' and shutil.which('latex') is None:
+    print ('could find latex.exe in the path, make sure you installed miktex and added the binary folder to your PATH environnemnt variable')
+    print ('looking for miktex in C:\Program Files')
+    l=glob.glob('C:\Program Files\MiKTeX*')    
+    found=False
+    if len(l)>=1:
+        miktexBinPath=os.path.join(l[-1],r'miktex\bin\x64')
+        if os.path.exists(os.path.join(miktexBinPath,'latex.exe')):
+            print('found latex.xe in %s'%miktexBinPath)
+            os.environ['PATH'] += os.pathsep + miktexBinPath
+        else:
+            raise BaseException('could find latex.exe in %s'%miktexBinPath )
+    else:
+        raise BaseException('could find Miktex in C:\Program Files' )
 
 
 def formula_as_file( formula, file, negate=False,header='',fileFolder='.',dirpath='.' ):
@@ -26,6 +44,9 @@ def formula_as_file( formula, file, negate=False,header='',fileFolder='.',dirpat
     latexfile.write('%s'%formula)
     latexfile.write('\n\\end{document}  ') 
     latexfile.close()
+
+
+
 
     if platform.system()=='Linux':
 
@@ -50,8 +71,7 @@ def formula_as_file( formula, file, negate=False,header='',fileFolder='.',dirpat
             file='./'+re.findall(r"""/master/(.*)""", file)[0]    
         file=os.path.join(fileFolder,file) 
         if file[-3:]=='svg': 
-            if shutil.which('latex') is None:
-                raise BaseException('could find latex.exe in the path, make sure you installed miktex and added the binary folder to your PATH environnemnt variable')
+
             cmd='latex -output-directory="%s"  %s'%(dirpath,laxtex_tmp_file)
             dvi_tmp_file=os.path.join(dirpath,'tmp_equation.dvi')
             print('runing command:%s'%cmd)
@@ -62,20 +82,17 @@ def formula_as_file( formula, file, negate=False,header='',fileFolder='.',dirpat
 
 
         elif file[-3:]=='pdf':
-            if shutil.which('pdflatex') is None:
-                raise BaseException('could find pdflatex.exe in the path, make sure you installed miktex and added the binary folder to your PATH environnemnt variable')
+
             cmd='pdflatex -output-directory="%s"  %s'%(dirpath,laxtex_tmp_file)
             print('runing command:%s'%cmd)
             shutil.copyfile(pdf_tmp_file,file)
         elif file[-3:]=='png':
-            if shutil.which('latex') is None:
-                raise BaseException('could find latex.exe in the path, make sure you installed miktex and added the binary folder to your PATH environnemnt variable')            
+           
             cmd='latex -output-directory="%s"  %s'%(dirpath,laxtex_tmp_file)
             dvi_tmp_file=os.path.join(dirpath,'tmp_equation.dvi')
             print('runing command:%s'%cmd)		
             os.system(cmd  )
-            if shutil.which('dvipng') is None:
-                raise BaseException('could find dvipng.exe in the path, make sure you installed miktex and added the binary folder to your PATH environnemnt variable')             
+           
             cmd='dvipng  %s -o %s'%(dvi_tmp_file,file)
             print('runing command:%s'%cmd)
             os.system(cmd  )
@@ -90,21 +107,21 @@ def processMarkdownFile(mdFile):
     dirpath = tempfile.mkdtemp()
     # ... do stuff with dirpath
     print ('temporary directory for latex compilation = %s'%dirpath)    
-    
+
     latex_equations= re.findall(r"""[^\t]!\[latex:(.*?)\]\((.*?)\)""", filecontent)
     listname=set()
     for eqn in latex_equations:        
         if eqn[1] in listname:
             raise Exception('equation image file %s already used'%eqn[1])
-    
+
         listname.add(eqn[1])
         formula_as_file(eqn[0],eqn[1],fileFolder=fileFolder,dirpath=dirpath)
-    
+
     shutil.rmtree(dirpath)    
 if __name__ == "__main__":
     for arg in sys.argv: 
         print (arg)
-    
+
 
     if len(sys.argv)==1:
         mdFile='./readme.md'
@@ -113,8 +130,8 @@ if __name__ == "__main__":
     else:
         raise Exception('wrong number of arguments')
     import re
-    
+
     import os
-    
+
     processMarkdownFile(mdFile)
     print ('DONE')
