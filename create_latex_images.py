@@ -41,7 +41,7 @@ def formula_as_file( formula, file, negate=False,header='' ):
     latexfile.write('\n\\end{document}  ') 
     latexfile.close()
     os.system( 'pdflatex -output-directory="%s"  %s'%(dirpath,laxtex_tmp_file) )
-    if file.startswith('https://rawgithub.com'):
+    if file.startswith('https://raw.github.com'):
         file='./'+re.findall(r"""/master/(.*)""", file)[0]    
     if file[-3:]=='svg': 
         os.system( 'pdf2svg %s %s'%(pdf_tmp_file,file) )
