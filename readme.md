@@ -12,7 +12,6 @@ you just need to run in the shell
 Note: on linux you may have to use
 
 	sudo python create_latex_images.py your_markdown_file.md
-
 for some reason we need sudo to generate png images or we get all white images
 
 
