@@ -21,11 +21,16 @@ For some reason we need sudo to generate png images or we get all white images
 * they are in a text format which is **good for versioning** with git or mercurial: as long as you don't change an equation, the corresponding svg get regenerated as you launch the script but as its textual content remains unchanged no change will be detected and commited.
 # Installation
 
-the python script calls the executables pdflatex, pdf2svg 
+the python script calls the executables pdflatex, pdf2svg and convert
+ 
 ## Windows
 
+the script calls the executables pdflatex, latex, dvipng and dvisvgm. 
+
+You can:
+
  * install [MiKTeX](https://miktex.org/download) 
- * you can add the folder C:\Program Files\MiKTeX 2.9\miktex\bin\x64 in your windows PATH environnement variable. If you on't the script will look for miktex in C:\Program Files.
+ * add the folder C:\Program Files\MiKTeX 2.9\miktex\bin\x64 in your windows PATH environnement variable. If you don't the script will look for miktex in C:\Program Files.
 
 At the first run , miktex popup windows will appear to install missing packages.
  
