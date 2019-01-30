@@ -17,7 +17,7 @@ you just need to run in the shell
 
 # Examples
 
-##Using PNGs
+## Using PNGs
 
 	![latex:$I(t)=\int_{x=0}^t f(dx) dx$](./images/integral.png) 
 	
@@ -35,19 +35,13 @@ Gives:
 	
 
 
-##Using SVGs
+## Using SVGs
 
 	![latex:$I(t)=\int_{x=0}^t f(dx) dx$\](./images/integral.svg) 
 
 Gives:
-![latex:$I(t)=\int_{x=0}^t f(dx) dx$\](./images/integral.svg)
 
-
-	![latex:$I(t)=\int_{x=0}^t f(dx) dx$](./images/integral2.svg)
-
-Gives:
-
-![latex:$I(t)=\int_{x=0}^t f(dx) dx$](./images/integral2.svg)
+![latex:$I(t)=\int_{x=0}^t f(dx) dx$](./images/integral.svg)
 
 lager size:
 
