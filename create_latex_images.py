@@ -76,7 +76,7 @@ def formula_as_file( formula, file, negate=False,header='',fileFolder='.',dirpat
             dvi_tmp_file=os.path.join(dirpath,'tmp_equation.dvi')
             print('runing command:%s'%cmd)
             os.system( cmd )
-            cmd='dvisvgm %s -o %s'%(dvi_tmp_file,file)
+            cmd='dvisvgm %s -o %s --no-fonts'%(dvi_tmp_file,file)
             print('runing command:%s'%cmd)
             os.system( cmd )
 
