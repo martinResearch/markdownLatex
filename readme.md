@@ -75,6 +75,20 @@ lager size:
 
 
 
+# Alternatives
+
+* latex.codecogs.com
+
+		![description](https://latex.codecogs.com/svg.latex?\huge&space;$I(t)=\int_{x=0}^t&space;f(dx)&space;dx$)
+	
+	![description](https://latex.codecogs.com/svg.latex?\huge&space;$I(t)=\int_{x=0}^t&space;f(dx)&space;dx$)
+
+* [KaTeXify](https://github.com/FlorianFranzen/KaTeXify)
+
+* [GitHub with MathJax](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima) Chrome extension.
+
+
+
 	
 
 
