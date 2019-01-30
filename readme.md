@@ -17,6 +17,7 @@ you just need to run in the shell
 
 # Examples
 
+##Using PNGs
 
 	![latex:$I(t)=\int_{x=0}^t f(dx) dx$](./images/integral.png) 
 	
@@ -31,20 +32,20 @@ Gives:
 ![latex:I(t)=\huge $\int_{x=0}^t f(dx) dx$](./images/integral2.png)
  
 
-	![latex:$I(t)=\int_{x=0}^t f(dx) dx$\](./images/integral.svg) 
 	
 
-This would works on bitbucket but gives a broken link on github:
 
-![latex:$I(t)=\int_{x=0}^t f(dx) dx$](./images/integral.svg)
+##Using SVGs
 
-This is due to the fact that github does not allow to include svg files with a relative paths like that [see reasons here](https://github.com/potherca/StackOverflow/tree/gh-pages/question.13808020.include-an-svg-hosted-on-github-in-markdown). 
+	![latex:$I(t)=\int_{x=0}^t f(dx) dx$\](./images/integral.svg) 
 
-You need to use the following trick
+Gives:
+![latex:$I(t)=\int_{x=0}^t f(dx) dx$\](./images/integral.svg)
+
 
 	![latex:$I(t)=\int_{x=0}^t f(dx) dx$](./images/integral2.svg)
 
-and you get 
+Gives:
 
 ![latex:$I(t)=\int_{x=0}^t f(dx) dx$](./images/integral2.svg)
 
@@ -53,7 +54,7 @@ lager size:
 	![latex:\huge $I(t)=\int_{x=0}^t f(dx) dx$](./images/integral3.svg)
 
 
-![latex:\huge $I(t)=\int_{x=0}^t f(dx) dx$](./integral3.svg)
+![latex:\huge $I(t)=\int_{x=0}^t f(dx) dx$](./images/integral3.svg)
 
 
 
