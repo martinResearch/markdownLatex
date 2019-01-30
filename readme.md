@@ -76,18 +76,19 @@ lager size:
 
 
 # Alternatives
-
-* latex.codecogs.com
+* [Readme2tex](https://github.com/leegao/readme2tex) is a Python script that "texifies" your readme. It takes in Github Markdown and replaces anything enclosed between dollar signs with rendered Latex.
+* [latex.codecogs.com](latex.codecogs.com). Renders latex expressions provided in the url:
 
 		![description](https://latex.codecogs.com/svg.latex?\huge&space;$I(t)=\int_{x=0}^t&space;f(dx)&space;dx$)
 	
 	![description](https://latex.codecogs.com/svg.latex?\huge&space;$I(t)=\int_{x=0}^t&space;f(dx)&space;dx$)
 
-* [KaTeXify](https://github.com/FlorianFranzen/KaTeXify)
 
-* [Texify](https://github.com/apps/texify). TeXify is a GitHub App built on top of readme2tex that automatically takes your markdown files and replaces anything enclosed between dollar signs with rendered LaTeX.
+* [Texify](https://github.com/apps/texify) is a GitHub App built on top of readme2tex that automatically takes your markdown files and replaces anything enclosed between dollar signs with rendered LaTeX.
 
-* [GitHub with MathJax](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima) Chrome extension.
+* [KaTeXify](https://github.com/FlorianFranzen/KaTeXify) is a browser plugin to add LaTeX mathematic equation support to GitHub, based on KaTex.
+
+* [GitHub with MathJax](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima) is Chrome extension that renders MathJax expressions.
 
 # Improvements
 
