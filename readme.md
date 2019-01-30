@@ -9,11 +9,11 @@ you just need to run in the shell
 
 	python create_latex_images.py your_markdown_file.md
 	
-Note: on linux you may have to use
+In linux you may have to use the sudo command:
 
 	sudo python create_latex_images.py your_markdown_file.md
-for some reason we need sudo to generate png images or we get all white images
-
+	
+For some reason we need sudo to generate png images or we get all white images
 
 **we recommand using svg image files** because
 
@@ -24,8 +24,11 @@ for some reason we need sudo to generate png images or we get all white images
 the python script calls the executables pdflatex, pdf2svg 
 ## Windows
 
-install [MiKTeX](https://miktex.org/download)  add the folder C:\Program Files\MiKTeX 2.9\miktex\bin\x64 in your windows PATH environnement variable
+ * install [MiKTeX](https://miktex.org/download) 
+ * you can add the folder C:\Program Files\MiKTeX 2.9\miktex\bin\x64 in your windows PATH environnement variable. If you on't the script will look for miktex in C:\Program Files.
 
+At the first run , miktex popup windows will appear to install missing packages.
+ 
 ## Linux
 	
 	sudo apt-get install texlive-latex-base
